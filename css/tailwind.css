@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Primary Colors */
+  --color-primary: #2D1B69; /* Deep space foundation */
+  --color-primary-50: #F4F1FB; /* Very light purple */
+  --color-primary-100: #E8E1F7; /* Light purple */
+  --color-primary-200: #D1C3EF; /* Medium light purple */
+  --color-primary-300: #B8A9D9; /* Medium purple */
+  --color-primary-400: #9F8FD1; /* Medium dark purple */
+  --color-primary-500: #2D1B69; /* Base primary */
+  --color-primary-600: #251659; /* Darker primary */
+  --color-primary-700: #1D1149; /* Very dark primary */
+  --color-primary-800: #150C39; /* Ultra dark primary */
+  --color-primary-900: #0D0729; /* Deepest primary */
+
+  /* Secondary Colors */
+  --color-secondary: #1A0F3A; /* Darker cosmic depth */
+  --color-secondary-50: #F2F0F8; /* Very light secondary */
+  --color-secondary-100: #E5E1F1; /* Light secondary */
+  --color-secondary-200: #CBC3E3; /* Medium light secondary */
+  --color-secondary-300: #B1A5D5; /* Medium secondary */
+  --color-secondary-400: #9787C7; /* Medium dark secondary */
+  --color-secondary-500: #1A0F3A; /* Base secondary */
+  --color-secondary-600: #170D31; /* Darker secondary */
+  --color-secondary-700: #140B28; /* Very dark secondary */
+  --color-secondary-800: #11091F; /* Ultra dark secondary */
+  --color-secondary-900: #0E0716; /* Deepest secondary */
+
+  /* Accent Colors */
+  --color-accent: #FF6B35; /* Stellar energy */
+  --color-accent-50: #FFF4F0; /* Very light accent */
+  --color-accent-100: #FFE9E1; /* Light accent */
+  --color-accent-200: #FFD3C3; /* Medium light accent */
+  --color-accent-300: #FFBDA5; /* Medium accent */
+  --color-accent-400: #FFA787; /* Medium dark accent */
+  --color-accent-500: #FF6B35; /* Base accent */
+  --color-accent-600: #E55A2B; /* Darker accent */
+  --color-accent-700: #CC4921; /* Very dark accent */
+  --color-accent-800: #B23817; /* Ultra dark accent */
+  --color-accent-900: #99270D; /* Deepest accent */
+
+  /* Background Colors */
+  --color-background: #0F0A1F; /* Pure space canvas */
+  --color-surface: #3D2B7A; /* Subtle elevation */
+
+  /* Text Colors */
+  --color-text-primary: #FFFFFF; /* Crystal clarity */
+  --color-text-secondary: #B8A9D9; /* Gentle hierarchy */
+
+  /* Status Colors */
+  --color-success: #00D4AA; /* Cosmic confirmation */
+  --color-success-50: #F0FDFB; /* Very light success */
+  --color-success-100: #E1FBF7; /* Light success */
+  --color-success-200: #C3F7EF; /* Medium light success */
+  --color-success-300: #A5F3E7; /* Medium success */
+  --color-success-400: #87EFDF; /* Medium dark success */
+  --color-success-500: #00D4AA; /* Base success */
+  --color-success-600: #00BF99; /* Darker success */
+  --color-success-700: #00AA88; /* Very dark success */
+  --color-success-800: #009577; /* Ultra dark success */
+  --color-success-900: #008066; /* Deepest success */
+
+  --color-warning: #FFB347; /* Stellar caution */
+  --color-warning-50: #FFFBF5; /* Very light warning */
+  --color-warning-100: #FFF7EB; /* Light warning */
+  --color-warning-200: #FFEFD7; /* Medium light warning */
+  --color-warning-300: #FFE7C3; /* Medium warning */
+  --color-warning-400: #FFDFAF; /* Medium dark warning */
+  --color-warning-500: #FFB347; /* Base warning */
+  --color-warning-600: #E5A13F; /* Darker warning */
+  --color-warning-700: #CC8F37; /* Very dark warning */
+  --color-warning-800: #B27D2F; /* Ultra dark warning */
+  --color-warning-900: #996B27; /* Deepest warning */
+
+  --color-error: #FF6B6B; /* Gentle correction */
+  --color-error-50: #FFF5F5; /* Very light error */
+  --color-error-100: #FFEBEB; /* Light error */
+  --color-error-200: #FFD7D7; /* Medium light error */
+  --color-error-300: #FFC3C3; /* Medium error */
+  --color-error-400: #FFAFAF; /* Medium dark error */
+  --color-error-500: #FF6B6B; /* Base error */
+  --color-error-600: #E55F5F; /* Darker error */
+  --color-error-700: #CC5353; /* Very dark error */
+  --color-error-800: #B24747; /* Ultra dark error */
+  --color-error-900: #993B3B; /* Deepest error */
+}
+
+/* Custom Cosmic Shadows */
+.cosmic-shadow {
+  box-shadow: 0 8px 32px rgba(45, 27, 105, 0.3);
+}
+
+.cosmic-shadow-lg {
+  box-shadow: 0 16px 48px rgba(45, 27, 105, 0.4);
+}
+
+.cosmic-glow {
+  box-shadow: 0 0 20px rgba(255, 107, 53, 0.3);
+}
+
+/* Gradient Borders */
+.gradient-border {
+  position: relative;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-primary));
+  padding: 1px;
+  border-radius: 8px;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  background: var(--color-background);
+  border-radius: 7px;
+}
+
+/* Cosmic Animations */
+.cosmic-pulse {
+  animation: cosmic-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes cosmic-pulse {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 20px rgba(255, 107, 53, 0.3);
+  }
+  50% {
+    opacity: 0.8;
+    box-shadow: 0 0 30px rgba(255, 107, 53, 0.5);
+  }
+}
+
+/* Smooth Transitions */
+.cosmic-transition {
+  transition: all 300ms ease-out;
+}
+
+.cosmic-transition-slow {
+  transition: all 400ms ease-out;
+}
+
+/* Starfield Background */
+.starfield {
+  background: radial-gradient(2px 2px at 20px 30px, #eee, transparent),
+              radial-gradient(2px 2px at 40px 70px, rgba(255, 255, 255, 0.8), transparent),
+              radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+              radial-gradient(1px 1px at 130px 80px, rgba(255, 255, 255, 0.6), transparent),
+              radial-gradient(2px 2px at 160px 30px, #ddd, transparent);
+  background-repeat: repeat;
+  background-size: 200px 100px;
+}

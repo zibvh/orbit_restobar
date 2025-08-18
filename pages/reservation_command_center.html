@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reservation Command Center - Orbit Restobar</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <meta name="description" content="Book your cosmic dining experience at Orbit Restobar. Select your preferred seating zone and customize your stellar journey with our advanced reservation system." />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Forbitrest5829back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.6"></script>
+</head>
+<body class="bg-background text-text-primary font-inter overflow-x-hidden">
+    <!-- Starfield Background -->
+    <div class="fixed inset-0 bg-starfield opacity-30 pointer-events-none"></div>
+    <div class="fixed inset-0 bg-cosmic-gradient opacity-95 pointer-events-none"></div>
+
+    <!-- Floating Particles -->
+    <div class="fixed inset-0 pointer-events-none">
+        <div class="absolute top-1/4 left-1/4 w-2 h-2 bg-accent rounded-full animate-float opacity-60"></div>
+        <div class="absolute top-1/3 right-1/3 w-1 h-1 bg-white rounded-full animate-float opacity-80" style="animation-delay: 1s;"></div>
+        <div class="absolute bottom-1/4 left-1/3 w-3 h-3 bg-accent-400 rounded-full animate-float opacity-40" style="animation-delay: 2s;"></div>
+        <div class="absolute top-2/3 right-1/4 w-1.5 h-1.5 bg-white rounded-full animate-float opacity-70" style="animation-delay: 3s;"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="relative z-50 bg-primary/20 backdrop-blur-cosmic border-b border-primary-400/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <svg class="h-12 w-12 text-accent" viewBox="0 0 48 48" fill="none">
+                            <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="24" cy="24" r="12" stroke="currentColor" stroke-width="1.5"/>
+                            <circle cx="24" cy="24" r="4" fill="currentColor"/>
+                            <path d="M24 4v8M24 36v8M4 24h8M36 24h8" stroke="currentColor" stroke-width="1.5"/>
+                        </svg>
+                    </div>
+                    <div class="ml-3">
+                        <h1 class="text-2xl font-orbitron font-bold text-white">Orbit</h1>
+                        <p class="text-xs text-text-secondary font-space-mono">RESTOBAR</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="homepage_mission_control.html" class="text-text-secondary hover:text-white cosmic-transition px-3 py-2 rounded-md text-sm font-orbitron">Mission Control</a>
+                        <a href="stellar_menu_system.html" class="text-text-secondary hover:text-white cosmic-transition px-3 py-2 rounded-md text-sm font-orbitron">Stellar Menu</a>
+                        <a href="reservation_command_center.html" class="text-accent font-medium px-3 py-2 rounded-md text-sm font-orbitron">Reservations</a>
+                        <a href="event_horizon_private_experiences.html" class="text-text-secondary hover:text-white cosmic-transition px-3 py-2 rounded-md text-sm font-orbitron">Events</a>
+                        <a href="visual_observatory_gallery.html" class="text-text-secondary hover:text-white cosmic-transition px-3 py-2 rounded-md text-sm font-orbitron">Gallery</a>
+                        <a href="loyalty_constellation_member_portal.html" class="text-text-secondary hover:text-white cosmic-transition px-3 py-2 rounded-md text-sm font-orbitron">Loyalty</a>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-text-secondary hover:text-white p-2">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="md:hidden hidden bg-primary/30 backdrop-blur-cosmic border-t border-primary-400/30">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="homepage_mission_control.html" class="text-text-secondary hover:text-white block px-3 py-2 rounded-md text-base font-orbitron">Mission Control</a>
+                <a href="stellar_menu_system.html" class="text-text-secondary hover:text-white block px-3 py-2 rounded-md text-base font-orbitron">Stellar Menu</a>
+                <a href="reservation_command_center.html" class="text-accent block px-3 py-2 rounded-md text-base font-orbitron">Reservations</a>
+                <a href="event_horizon_private_experiences.html" class="text-text-secondary hover:text-white block px-3 py-2 rounded-md text-base font-orbitron">Events</a>
+                <a href="visual_observatory_gallery.html" class="text-text-secondary hover:text-white block px-3 py-2 rounded-md text-base font-orbitron">Gallery</a>
+                <a href="loyalty_constellation_member_portal.html" class="text-text-secondary hover:text-white block px-3 py-2 rounded-md text-base font-orbitron">Loyalty</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto text-center">
+            <div class="space-y-8">
+                <div class="space-y-4">
+                    <h1 class="text-4xl md:text-6xl lg:text-cosmic-xl font-orbitron font-bold leading-tight">
+                        Reservation
+                        <span class="block bg-gradient-to-r from-accent to-pink-500 bg-clip-text text-transparent animate-glow">
+                            Command Center
+                        </span>
+                    </h1>
+                    <p class="text-xl md:text-2xl text-text-secondary max-w-3xl mx-auto font-inter">
+                        Secure your seat aboard our cosmic dining vessel and prepare for an interstellar culinary journey
+                    </p>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                    <div class="bg-primary/20 backdrop-blur-cosmic border border-primary-400/30 rounded-xl p-6">
+                        <div class="flex items-center justify-center mb-2">
+                            <div class="w-3 h-3 bg-success rounded-full animate-cosmic-pulse mr-2"></div>
+                            <span class="text-success font-space-mono text-sm">LIVE STATUS</span>
+                        </div>
+                        <div class="text-2xl font-orbitron font-bold text-accent">12</div>
+                        <p class="text-sm text-text-secondary">Tables Available Tonight</p>
+                    </div>
+                    <div class="bg-primary/20 backdrop-blur-cosmic border border-primary-400/30 rounded-xl p-6">
+                        <div class="text-2xl font-orbitron font-bold text-accent">4.9★</div>
+                        <p class="text-sm text-text-secondary">Average Experience Rating</p>
+                    </div>
+                    <div class="bg-primary/20 backdrop-blur-cosmic border border-primary-400/30 rounded-xl p-6">
+                        <div class="text-2xl font-orbitron font-bold text-accent">2.5hrs</div>
+                        <p class="text-sm text-text-secondary">Average Cosmic Journey</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservation System -->
+    <section class="relative py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Spacecraft Floor Plan -->
+                <div class="space-y-8">
+                    <div class="text-center lg:text-left">
+                        <h2 class="text-3xl md:text-4xl font-orbitron font-bold mb-4">
+                            Select Your <span class="text-accent">Seating Zone</span>
+                        </h2>
+                        <p class="text-xl text-text-secondary">
+                            Choose your preferred location aboard our cosmic dining vessel
+                        </p>
+                    </div>
+
+                    <!-- Interactive Floor Plan -->
+                    <div class="bg-primary/20 backdrop-blur-cosmic border border-primary-400/30 rounded-xl p-8">
+                        <div class="relative">
+                            <!-- Spacecraft Layout -->
+                            <svg viewBox="0 0 400 300" class="w-full h-auto">
+                                <!-- Spacecraft Hull -->
+                                <ellipse cx="200" cy="150" rx="180" ry="120" fill="none" stroke="#9F8FD1" stroke-width="2"/>
+                                
+                                <!-- Observatory Deck (Top) -->
+                                <g id="observatory-deck" class="cursor-pointer hover:opacity-80 cosmic-transition">
+                                    <path d="M 80 80 Q 200 40 320 80 L 300 120 Q 200 100 100 120 Z" fill="rgba(255, 107, 53, 0.2)" stroke="#FF6B35" stroke-width="2"/>
+                                    <text x="200" y="90" text-anchor="middle" fill="#FF6B35" font-family="Orbitron" font-size="12" font-weight="bold">Observatory Deck</text>
+                                    <text x="200" y="105" text-anchor="middle" fill="#B8A9D9" font-family="Inter" font-size="10">Window Tables • 8 Available</text>
+                                </g>
+
+                                <!-- Captain's Quarters (Left & Right) -->
+                                <g id="captains-quarters" class="cursor-pointer hover:opacity-80 cosmic-transition">
+                                    <rect x="50" y="130" width="80" height="40" rx="8" fill="rgba(0, 212, 170, 0.2)" stroke="#00D4AA" stroke-width="2"/>
+                                    <rect x="270" y="130" width="80" height="40" rx="8" fill="rgba(0, 212, 170, 0.2)" stroke="#00D4AA" stroke-width="2"/>
+                                    <text x="90" y="145" text-anchor="middle" fill="#00D4AA" font-family="Orbitron" font-size="10" font-weight="bold">Captain's</text>
+                                    <text x="90" y="158" text-anchor="middle" fill="#00D4AA" font-family="Orbitron" font-size="10" font-weight="bold">Quarters</text>
+                                    <text x="310" y="145" text-anchor="middle" fill="#00D4AA" font-family="Orbitron" font-size="10" font-weight="bold">Captain's</text>
+                                    <text x="310" y="158" text-anchor="middle" fill="#00D4AA" font-family="Orbitron" font-size="10" font-weight="bold">Quarters</text>
+                                </g>
+
+                                <!-- Main Bridge (Center) -->
+                                <g id="main-bridge" class="cursor-pointer hover:opacity-80 cosmic-transition">
+                                    <ellipse cx="200" cy="180" rx="60" ry="30" fill="rgba(255, 179, 71, 0.2)" stroke="#FFB347" stroke-width="2"/>
+                                    <text x="200" y="175" text-anchor="middle" fill="#FFB347" font-family="Orbitron" font-size="12" font-weight="bold">Main Bridge</text>
+                                    <text x="200" y="190" text-anchor="middle" fill="#B8A9D9" font-family="Inter" font-size="10">Central Dining • 6 Available</text>
+                                </g>
+
+                                <!-- Navigation Points -->
+                                <circle cx="200" cy="50" r="3" fill="#FF6B35"/>
+                                <circle cx="50" cy="150" r="3" fill="#00D4AA"/>
+                                <circle cx="350" cy="150" r="3" fill="#00D4AA"/>
+                                <circle cx="200" cy="250" r="3" fill="#FFB347"/>
+                            </svg>
+
+                            <!-- Zone Selection Buttons -->
+                            <div class="mt-8 space-y-4">
+                                <button id="select-observatory" class="w-full bg-accent/20 hover:bg-accent hover:text-white text-accent border border-accent rounded-lg p-4 cosmic-transition font-orbitron">
+                                    <div class="flex items-center justify-between">
+                                        <div class="text-left">
+                                            <h3 class="font-bold">Observatory Deck</h3>
+                                            <p class="text-sm opacity-80">Premium window seating with cosmic views</p>
+                                        </div>
+                                        <div class="text-right">
+                                            <div class="text-lg font-bold">8 Available</div>
+                                            <div class="text-sm">+$15 per person</div>
+                                        </div>
+                                    </div>
+                                </button>
+
+                                <button id="select-captains" class="w-full bg-success/20 hover:bg-success hover:text-white text-success border border-success rounded-lg p-4 cosmic-transition font-orbitron">
+                                    <div class="flex items-center justify-between">
+                                        <div class="text-left">
+                                            <h3 class="font-bold">Captain's Quarters</h3>
+                                            <p class="text-sm opacity-80">Intimate booth seating for private conversations</p>
+                                        </div>
+                                        <div class="text-right">
+                                            <div class="text-lg font-bold">4 Available</div>
+                                            <div class="text-sm">Standard Rate</div>
+                                        </div>
+                                    </div>
+                                </button>
+
+                                <button id="select-bridge" class="w-full bg-warning/20 hover:bg-warning hover:text-white text-warning border border-warning rounded-lg p-4 cosmic-transition font-orbitron">
+                                    <div class="flex items-center justify-between">
+                                        <div class="text-left">
+                                            <h3 class="font-bold">Main Bridge</h3>
+                                            <p class="text-sm opacity-80">Central dining with full restaurant atmosphere</p>
+                                        </div>
+                                        <div class="text-right">
+                                            <div class="text-lg font-bold">6 Available</div>
+                                            <div class="text-sm">Standard Rate</div>
+                                        </div>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Booking Form -->
+                <div class="space-y-8">
+                    <div class="bg-primary/20 backdrop-blur-cosmic border border-primary-400/30 rounded-xl p-8">
+                        <h3 class="text-2xl font-orbitron font-bold mb-6">Mission Parameters</h3>
+                        
+                        <form id="reservation-form" class="space-y-6">
+                            <!-- Guest Information -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-orbitron font-medium mb-2">Commander Name</label>
+                                    <input type="text" id="guest-name" class="w-full bg-secondary/30 border border-primary-400/30 rounded-lg px-4 py-3 text-white placeholder-text-secondary focus:border-accent focus:outline-none cosmic-transition" placeholder="Enter your name" required />
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-orbitron font-medium mb-2">Communication Channel</label>
+                                    <input type="email" id="guest-email" class="w-full bg-secondary/30 border border-primary-400/30 rounded-lg px-4 py-3 text-white placeholder-text-secondary focus:border-accent focus:outline-none cosmic-transition" placeholder="your@email.com" required />
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-orbitron font-medium mb-2">Contact Frequency</label>
+                                    <input type="tel" id="guest-phone" class="w-full bg-secondary/30 border border-primary-400/30 rounded-lg px-4 py-3 text-white placeholder-text-secondary focus:border-accent focus:outline-none cosmic-transition" placeholder="(555) 123-4567" required />
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-orbitron font-medium mb-2">Crew Size</label>
+                                    <select id="party-size" class="w-full bg-secondary/30 border border-primary-400/30 rounded-lg px-4 py-3 text-white focus:border-accent focus:outline-none cosmic-transition" required>
+                                        <option value>Select party size</option>
+                                        <option value="1">1 Guest</option>
+                                        <option value="2">2 Guests</option>
+                                        <option value="3">3 Guests</option>
+                                        <option value="4">4 Guests</option>
+                                        <option value="5">5 Guests</option>
+                                        <option value="6">6 Guests</option>
+                                        <option value="7">7 Guests</option>
+                                        <option value="8">8 Guests</option>
+                                        <option value="large">Large Group (9+)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Date and Time -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-orbitron font-medium mb-2">Mission Date</label>
+                                    <input type="date" id="reservation-date" class="w-full bg-secondary/30 border border-primary-400/30 rounded-lg px-4 py-3 text-white focus:border-accent focus:outline-none cosmic-transition" required />
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-orbitron font-medium mb-2">Departure Time</label>
+                                    <select id="reservation-time" class="w-full bg-secondary/30 border border-primary-400/30 rounded-lg px-4 py-3 text-white focus:border-accent focus:outline-none cosmic-transition" required>
+                                        <option value>Select time</option>
+                                        <option value="17:00">5:00 PM</option>
+                                        <option value="17:30">5:30 PM</option>
+                                        <option value="18:00">6:00 PM</option>
+                                        <option value="18:30">6:30 PM</option>
+                                        <option value="19:00">7:00 PM</option>
+                                        <option value="19:30">7:30 PM</option>
+                                        <option value="20:00">8:00 PM</option>
+                                        <option value="20:30">8:30 PM</option>
+                                        <option value="21:00">9:00 PM</option>
+                                        <option value="21:30">9:30 PM</option>
+                                        <option value="22:00">10:00 PM</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Special Occasion -->
+                            <div>
+                                <label class="block text-sm font-orbitron font-medium mb-2">Mission Type</label>
+                                <select id="occasion" class="w-full bg-secondary/30 border border-primary-400/30 rounded-lg px-4 py-3 text-white focus:border-accent focus:outline-none cosmic-transition">
+                                    <option value>Standard Dining Mission</option>
+                                    <option value="birthday">Birthday Celebration</option>
+                                    <option value="anniversary">Anniversary</option>
+                                    <option value="proposal">Proposal Mission</option>
+                                    <option value="business">Business Meeting</option>
+                                    <option value="date">Romantic Date</option>
+                                    <option value="celebration">General Celebration</option>
+                                </select>
+                            </div>
+
+                            <!-- Dietary Restrictions -->
+                            <div>
+                                <label class="block text-sm font-orbitron font-medium mb-2">Dietary Navigation</label>
+                                <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="mr-2 accent-accent" />
+                                        <span class="text-sm">Vegetarian</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="mr-2 accent-accent" />
+                                        <span class="text-sm">Vegan</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="mr-2 accent-accent" />
+                                        <span class="text-sm">Gluten-Free</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="mr-2 accent-accent" />
+                                        <span class="text-sm">Dairy-Free</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="mr-2 accent-accent" />
+                                        <span class="text-sm">Nut Allergies</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="mr-2 accent-accent" />
+                                        <span class="text-sm">Other</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Special Requests -->
+                            <div>
+                                <label class="block text-sm font-orbitron font-medium mb-2">Special Mission Requests</label>
+                                <textarea id="special-requests" rows="3" class="w-full bg-secondary/30 border border-primary-400/30 rounded-lg px-4 py-3 text-white placeholder-text-secondary focus:border-accent focus:outline-none cosmic-transition" placeholder="Any special requests or additional information..."></textarea>
+                            </div>
+
+                            <!-- Loyalty Member Login -->
+                            <div class="bg-accent/10 border border-accent/30 rounded-lg p-4">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h4 class="font-orbitron font-semibold text-accent">Constellation Member?</h4>
+                                    <button type="button" id="toggle-login" class="text-accent hover:text-accent-400 cosmic-transition text-sm">Sign In</button>
+                                </div>
+                                <div id="member-login" class="hidden space-y-4">
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <input type="email" placeholder="Member email" class="w-full bg-secondary/30 border border-primary-400/30 rounded-lg px-4 py-3 text-white placeholder-text-secondary focus:border-accent focus:outline-none cosmic-transition" />
+                                        <input type="password" placeholder="Password" class="w-full bg-secondary/30 border border-primary-400/30 rounded-lg px-4 py-3 text-white placeholder-text-secondary focus:border-accent focus:outline-none cosmic-transition" />
+                                    </div>
+                                    <div class="text-sm text-text-secondary">
+                                        <p>Demo credentials: member@orbit.com / member456</p>
+                                        <p class="text-accent">✨ Members get priority seating and 10% off!</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <button type="submit" class="w-full bg-accent hover:bg-accent-600 text-white px-8 py-4 rounded-lg font-orbitron font-semibold text-lg cosmic-transition shadow-cosmic-glow hover:shadow-cosmic-glow-lg">
+                                Launch Reservation Mission
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <button class="bg-primary/20 backdrop-blur-cosmic border border-primary-400/30 rounded-lg p-4 hover:shadow-cosmic-glow cosmic-transition">
+                            <div class="flex items-center">
+                                <svg class="w-6 h-6 text-accent mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                <div class="text-left">
+                                    <h4 class="font-orbitron font-semibold">Join Waitlist</h4>
+                                    <p class="text-sm text-text-secondary">Get notified of cancellations</p>
+                                </div>
+                            </div>
+                        </button>
+
+                        <button class="bg-primary/20 backdrop-blur-cosmic border border-primary-400/30 rounded-lg p-4 hover:shadow-cosmic-glow cosmic-transition">
+                            <div class="flex items-center">
+                                <svg class="w-6 h-6 text-success mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                                </svg>
+                                <div class="text-left">
+                                    <h4 class="font-orbitron font-semibold">Contact Host</h4>
+                                    <p class="text-sm text-text-secondary">Speak with our team</p>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservation Policies -->
+    <section class="relative py-20 px-4 sm:px-6 lg:px-8 bg-secondary/20">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-orbitron font-bold mb-4">
+                    Mission <span class="text-accent">Protocols</span>
+                </h2>
+                <p class="text-xl text-text-secondary">
+                    Important information for your cosmic dining experience
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Policies -->
+                <div class="bg-primary/20 backdrop-blur-cosmic border border-primary-400/30 rounded-xl p-6">
+                    <h3 class="text-xl font-orbitron font-bold mb-4 text-accent">Reservation Policies</h3>
+                    <ul class="space-y-3 text-text-secondary">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-accent mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Reservations held for 15 minutes past scheduled time
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-accent mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            24-hour cancellation policy for parties of 6+
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-accent mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Credit card required to secure reservation
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-accent mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Smart casual dress code enforced
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Special Services -->
+                <div class="bg-primary/20 backdrop-blur-cosmic border border-primary-400/30 rounded-xl p-6">
+                    <h3 class="text-xl font-orbitron font-bold mb-4 text-success">Special Services</h3>
+                    <ul class="space-y-3 text-text-secondary">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-success mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
+                            </svg>
+                            Complimentary celebration desserts
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-success mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
+                            </svg>
+                            Dietary accommodation specialists
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-success mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
+                            </svg>
+                            Valet parking available
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-success mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
+                            </svg>
+                            Wheelchair accessible seating
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="mt-12 text-center bg-primary/20 backdrop-blur-cosmic border border-primary-400/30 rounded-xl p-8">
+                <h3 class="text-xl font-orbitron font-bold mb-4">Need Assistance?</h3>
+                <p class="text-text-secondary mb-6">Our ground control team is here to help with your reservation</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="tel:+15551230742" class="flex items-center text-accent hover:text-accent-400 cosmic-transition">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                        </svg>
+                        (555) 123-ORBIT
+                    </a>
+                    <span class="text-text-secondary hidden sm:block">•</span>
+                    <a href="mailto:reservations@orbitrestobar.com" class="flex items-center text-accent hover:text-accent-400 cosmic-transition">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                        reservations@orbitrestobar.com
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative bg-primary/30 backdrop-blur-cosmic border-t border-primary-400/30 py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Logo and Description -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center mb-6">
+                        <svg class="h-12 w-12 text-accent" viewBox="0 0 48 48" fill="none">
+                            <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="24" cy="24" r="12" stroke="currentColor" stroke-width="1.5"/>
+                            <circle cx="24" cy="24" r="4" fill="currentColor"/>
+                            <path d="M24 4v8M24 36v8M4 24h8M36 24h8" stroke="currentColor" stroke-width="1.5"/>
+                        </svg>
+                        <div class="ml-3">
+                            <h3 class="text-2xl font-orbitron font-bold text-white">Orbit Restobar</h3>
+                            <p class="text-sm text-text-secondary font-space-mono">WHERE CULINARY ARTISTRY MEETS COSMIC WONDER</p>
+                        </div>
+                    </div>
+                    <p class="text-text-secondary mb-6 max-w-md">
+                        Experience otherworldly dining where every flavor journey becomes an interstellar adventure. Join us for stellar service and cosmic cuisine.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="javascript:void(0)" class="text-text-secondary hover:text-accent cosmic-transition">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </a>
+                        <a href="javascript:void(0)" class="text-text-secondary hover:text-accent cosmic-transition">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001 12.017.001z"/>
+                            </svg>
+                        </a>
+                        <a href="javascript:void(0)" class="text-text-secondary hover:text-accent cosmic-transition">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-orbitron font-semibold mb-6">Quick Access</h4>
+                    <ul class="space-y-3">
+                        <li><a href="reservation_command_center.html" class="text-text-secondary hover:text-accent cosmic-transition">Book Table</a></li>
+                        <li><a href="stellar_menu_system.html" class="text-text-secondary hover:text-accent cosmic-transition">View Menu</a></li>
+                        <li><a href="event_horizon_private_experiences.html" class="text-text-secondary hover:text-accent cosmic-transition">Private Events</a></li>
+                        <li><a href="loyalty_constellation_member_portal.html" class="text-text-secondary hover:text-accent cosmic-transition">Loyalty Program</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-lg font-orbitron font-semibold mb-6">Ground Control</h4>
+                    <div class="space-y-3 text-text-secondary">
+                        <p class="flex items-center">
+                            <svg class="w-5 h-5 mr-3 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                            123 Cosmic Avenue, Star City
+                        </p>
+                        <p class="flex items-center">
+                            <svg class="w-5 h-5 mr-3 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                            </svg>
+                            (555) 123-ORBIT
+                        </p>
+                        <p class="flex items-center">
+                            <svg class="w-5 h-5 mr-3 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                            hello@orbitrestobar.com
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-primary-400/30 mt-12 pt-8 text-center">
+                <p class="text-text-secondary">
+                    © 2025 Orbit Restobar. All Rights Reserved. | Crafted with cosmic love for stellar experiences.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Sticky Navigation -->
+    <div class="fixed bottom-0 left-0 right-0 bg-primary/90 backdrop-blur-cosmic border-t border-primary-400/30 md:hidden z-50">
+        <div class="flex items-center justify-around py-2">
+            <a href="homepage_mission_control.html" class="flex flex-col items-center p-2 text-text-secondary">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                </svg>
+                <span class="text-xs font-space-mono">Home</span>
+            </a>
+            <a href="stellar_menu_system.html" class="flex flex-col items-center p-2 text-text-secondary">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                </svg>
+                <span class="text-xs font-space-mono">Menu</span>
+            </a>
+            <a href="reservation_command_center.html" class="flex flex-col items-center p-2 text-accent">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3a1 1 0 011-1h6a1 1 0 011 1v4h3a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9a2 2 0 012-2h3z"/>
+                </svg>
+                <span class="text-xs font-space-mono">Book</span>
+            </a>
+            <a href="visual_observatory_gallery.html" class="flex flex-col items-center p-2 text-text-secondary">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                </svg>
+                <span class="text-xs font-space-mono">Gallery</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Set minimum date to today
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('reservation-date').setAttribute('min', today);
+
+        // Zone selection functionality
+        const zoneButtons = {
+            'select-observatory': 'Observatory Deck',
+            'select-captains': "Captain's Quarters",
+            'select-bridge': 'Main Bridge'
+        };
+
+        let selectedZone = null;
+
+        Object.keys(zoneButtons).forEach(buttonId => {
+            const button = document.getElementById(buttonId);
+            button.addEventListener('click', () => {
+                // Reset all buttons
+                Object.keys(zoneButtons).forEach(id => {
+                    const btn = document.getElementById(id);
+                    btn.classList.remove('bg-accent', 'text-white');
+                    btn.classList.add('bg-accent/20', 'text-accent');
+                });
+
+                // Activate selected button
+                button.classList.remove('bg-accent/20', 'text-accent');
+                button.classList.add('bg-accent', 'text-white');
+                selectedZone = zoneButtons[buttonId];
+            });
+        });
+
+        // SVG zone selection
+        document.getElementById('observatory-deck').addEventListener('click', () => {
+            document.getElementById('select-observatory').click();
+        });
+
+        document.getElementById('captains-quarters').addEventListener('click', () => {
+            document.getElementById('select-captains').click();
+        });
+
+        document.getElementById('main-bridge').addEventListener('click', () => {
+            document.getElementById('select-bridge').click();
+        });
+
+        // Member login toggle
+        document.getElementById('toggle-login').addEventListener('click', () => {
+            const loginSection = document.getElementById('member-login');
+            const toggleButton = document.getElementById('toggle-login');
+            
+            if (loginSection.classList.contains('hidden')) {
+                loginSection.classList.remove('hidden');
+                toggleButton.textContent = 'Hide';
+            } else {
+                loginSection.classList.add('hidden');
+                toggleButton.textContent = 'Sign In';
+            }
+        });
+
+        // Form submission
+        document.getElementById('reservation-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            if (!selectedZone) {
+                alert('Please select a seating zone before submitting your reservation.');
+                return;
+            }
+
+            // Collect form data
+            const formData = {
+                name: document.getElementById('guest-name').value,
+                email: document.getElementById('guest-email').value,
+                phone: document.getElementById('guest-phone').value,
+                partySize: document.getElementById('party-size').value,
+                date: document.getElementById('reservation-date').value,
+                time: document.getElementById('reservation-time').value,
+                zone: selectedZone,
+                occasion: document.getElementById('occasion').value,
+                specialRequests: document.getElementById('special-requests').value
+            };
+
+            // Simulate reservation confirmation
+            showConfirmationModal(formData);
+        });
+
+        function showConfirmationModal(data) {
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-background/80 backdrop-blur-cosmic flex items-center justify-center z-50 p-4';
+            modal.innerHTML = `
+                <div class="bg-primary/30 backdrop-blur-cosmic border border-primary-400/30 rounded-xl p-8 max-w-md w-full">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-success/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-orbitron font-bold text-success mb-2">Mission Confirmed!</h3>
+                        <p class="text-text-secondary">Your cosmic dining reservation has been secured</p>
+                    </div>
+                    
+                    <div class="space-y-3 mb-6">
+                        <div class="flex justify-between">
+                            <span class="text-text-secondary">Commander:</span>
+                            <span class="text-white">${data.name}</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-text-secondary">Crew Size:</span>
+                            <span class="text-white">${data.partySize} ${data.partySize === '1' ? 'Guest' : 'Guests'}</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-text-secondary">Mission Date:</span>
+                            <span class="text-white">${new Date(data.date).toLocaleDateString()}</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-text-secondary">Departure:</span>
+                            <span class="text-white">${data.time}</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-text-secondary">Zone:</span>
+                            <span class="text-white">${data.zone}</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-text-secondary">Confirmation:</span>
+                            <span class="text-accent font-space-mono">#ORB${Math.random().toString(36).substr(2, 6).toUpperCase()}</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-accent/10 border border-accent/30 rounded-lg p-4 mb-6">
+                        <p class="text-sm text-accent">
+                            📧 Confirmation email sent to ${data.email}<br>
+                            📱 SMS reminder will be sent 2 hours before your arrival
+                        </p>
+                    </div>
+                    
+                    <button onclick="this.parentElement.parentElement.remove()" class="w-full bg-accent hover:bg-accent-600 text-white px-6 py-3 rounded-lg font-orbitron font-semibold cosmic-transition">
+                        Close
+                    </button>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+        }
+
+        // Real-time availability updates (simulation)
+        function updateAvailability() {
+            const availabilityElements = document.querySelectorAll('[class*="Available"]');
+            availabilityElements.forEach(element => {
+                if (element.textContent.includes('Available')) {
+                    const currentCount = parseInt(element.textContent);
+                    // Simulate slight changes in availability
+                    const change = Math.random() > 0.7 ? (Math.random() > 0.5 ? 1 : -1) : 0;
+                    const newCount = Math.max(0, Math.min(12, currentCount + change));
+                    element.textContent = element.textContent.replace(/\d+/, newCount);
+                }
+            });
+        }
+
+        // Update availability every 30 seconds
+        setInterval(updateAvailability, 30000);
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
